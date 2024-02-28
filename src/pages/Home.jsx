@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { products } from "../data/products";
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
+import { formatCurrency } from "../utils/index";
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -9,22 +10,13 @@ const Home = () => {
     setSearchQuery(e.target.value);
   };
 
-  function formatCurrency(amount) {
-    const formatter = new Intl.NumberFormat("en-NG", {
-      currency: "NGN",
-    });
-
-    // Format the amount and remove the currency symbol
-    const formattedAmount = formatter.format(amount).replace(/NGN/, "").trim();
-
-    return `${formattedAmount} NGN`;
-  }
-
   const filteredProducts = products?.filter((item) =>
     item.name?.toLowerCase()?.includes(searchQuery)
   );
 
-  console.log(filteredProducts);
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="px-7 md:px-10 lg:px-20 py-10">

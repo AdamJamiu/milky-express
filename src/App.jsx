@@ -3,6 +3,9 @@ import "./App.css";
 import PageLayout from "./global/PageLayout";
 import Home from "./pages/Home";
 import ProductDetails from "./pages/ProductDetails";
+import Cart from "./pages/Cart";
+import OrderCompleted from "./pages/OrderCompleted";
+import Orders from "./pages/Orders";
 
 function App() {
   return (
@@ -10,8 +13,9 @@ function App() {
       <Routes>
         <Route path="" element={<PageLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/orders" element={<h1>Home page</h1>} />
-          <Route path="/cart" element={<h1>Home page</h1>} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/order-successful" element={<OrderCompleted />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/:id" element={<ProductDetails />} />
         </Route>
       </Routes>

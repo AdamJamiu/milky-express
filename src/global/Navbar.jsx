@@ -5,9 +5,11 @@ import cartIcon from "/cart-icon.png";
 const Navbar = () => {
   return (
     <nav className="w-full flex flex-row justify-between px-5 sm:px-10 md:px-20 items-center gap-10 top-0 fixed z-50 bg-white">
-      <img src={logo} className="w-28" />
+      <Link to="/">
+        <img src={logo} className="w-28" />
+      </Link>
 
-      <div className="font-poppins w-max flex flex-row justify-start items-center gap-7 text-sm">
+      <div className="font-poppins w-max flex flex-row justify-start items-center gap-10 text-sm">
         <Link to="/">HOME</Link>
         <Link to="/orders">MY ORDERS</Link>
         <Link
