@@ -1,15 +1,20 @@
 import { Link } from "react-router-dom";
 import logo from "/milky-logo.png";
 import cartIcon from "/cart-icon.png";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleIsOpen = () => setIsOpen(!isOpen);
+
   return (
     <nav className="w-full flex flex-row justify-between px-5 sm:px-10 md:px-20 items-center gap-10 top-0 fixed z-50 bg-white">
       <Link to="/">
         <img src={logo} className="w-28" />
       </Link>
 
-      <div className="font-poppins w-max flex flex-row justify-start items-center gap-10 text-sm">
+      <div className="font-poppins w-max hidden sm:flex flex-row justify-start items-center gap-10 text-sm">
         <Link to="/">HOME</Link>
         <Link to="/orders">MY ORDERS</Link>
         <Link
@@ -22,6 +27,32 @@ const Navbar = () => {
             <p className="text-xs">3 items</p>
           </div>
         </Link>
+      </div>
+
+      <div onClick={toggleIsOpen} className={`cursor-pointer block sm:hidden`}>
+        <div className="my-[6px] w-[25px] h-[2px] bg-gray-500"></div>
+        <div className="my-[6px] w-[25px] h-[2px] bg-gray-500"></div>
+        <div className="my-[6px] w-[25px] h-[2px] bg-gray-500"></div>
+      </div>
+
+      <div
+        className={`${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        } text-2xl gap-10 bg-white p-10 fixed top-0 ease-in-out transition-transform duration-300 flex flex-col justify-center items-center bottom-0 right-0 left-0`}
+      >
+        <div
+          onClick={toggleIsOpen}
+          className={`cursor-pointer block sm: absolute top-8 right-4 ${
+            isOpen ? "open" : ""
+          }`}
+        >
+          <div className="my-[6px] w-[25px] h-[2px] bg-gray-500"></div>
+          <div className="my-[6px] w-[25px] h-[2px] bg-gray-500"></div>
+          <div className="my-[6px] w-[25px] h-[2px] bg-gray-500"></div>
+        </div>
+        <Link to="/">HOME</Link>
+        <Link to="/orders">MY ORDERS</Link>
+        <Link to="/orders">CART</Link>
       </div>
     </nav>
   );

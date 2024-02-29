@@ -1,0 +1,17 @@
+/* MenuIcon.css */
+div {
+    transition: transform 0.3s ease;
+  }
+  
+  .open div:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  
+  .open div:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .open div:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+  
