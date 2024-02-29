@@ -11,7 +11,7 @@ const Cart = () => {
   const increaseQuantity = () => setQuantity((prev) => ++prev);
   const decreaseQuantity = () => setQuantity((prev) => --prev);
   return (
-    <div className="px-7 sm:px-14 md:p-20 font-poppins">
+    <div className="p-7 sm:px-14 md:p-20 font-poppins">
       <Link
         to="/"
         className="w-max flex flex-row justify-start items-center gap-3 flex-nowrap"
@@ -120,29 +120,29 @@ const Cart = () => {
               <input className="border border-[#BCBCBC] rounded-xl p-3 w-full mt-3" />
             </div>
 
-            <div className="mt-5 w-full flex flex-row justify-between items-center gap-4">
+            <div className="mt-5 w-full text-sm flex flex-row justify-between items-center gap-4">
               <p className="font-semibold">Subtotal</p>
               <p className="font-semibold">N14,000</p>
             </div>
 
-            <div className="mt-1 w-full flex flex-row justify-between items-center gap-4">
+            <div className="mt-1 w-full text-sm flex flex-row justify-between items-center gap-4">
               <p className="font-semibold">Shipping</p>
               <p className="font-semibold">N1,500</p>
             </div>
 
-            <div className="mt-1 w-full flex flex-row justify-between items-center gap-4">
+            <div className="mt-1 w-full text-sm flex flex-row justify-between items-center gap-4">
               <p className="font-semibold">Discount</p>
               <p className="font-semibold">-N500</p>
             </div>
 
-            <div className="mt-1 w-full text-2xl flex flex-row justify-between items-center gap-4">
+            <div className="mt-1 w-full text-xl flex flex-row justify-between items-center gap-4">
               <p className="font-bold">Total</p>
               <p className="font-bold">-N500</p>
             </div>
 
             <Link
               to="/order-successful"
-              className="mt-7 text-center font-medium bg-[#FF1A71] rounded-xl px-4 py-3 w-full text-white"
+              className="mt-7 text-center font-medium bg-[#FF1A71] text-sm rounded-xl px-4 py-3 w-full text-white"
             >
               Pay N15,000
             </Link>

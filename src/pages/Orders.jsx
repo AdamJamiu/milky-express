@@ -1,10 +1,8 @@
 import logo from "/milky-logo.png";
 import check from "/check.svg";
-import product4 from "/product-4.png";
-import product5 from "/product-5.png";
-import product6 from "/product-6.png";
+import printer from "/printer.svg";
 import arrowRight from "/arrow-right.svg";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { orders } from "../data/orders";
 
 const Orders = () => {
@@ -15,13 +13,11 @@ const Orders = () => {
     console.log(activeOrders);
   };
 
-  // console.log(activeOrders);
-
   return (
     <div className="font-poppins w-full p-4 md:p-20 grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-0">
       <div className="w-full bg-white lg:pr-10">
         <h1 className="text-2xl font-semibold mb-2">My Orders</h1>
-        <p className="text-[#949494] font-medium">
+        <p className="text-[#949494] font-medium text-sm">
           Input your email to view your order history
         </p>
 
@@ -89,12 +85,12 @@ const Orders = () => {
           </div>
         ))}
 
-        <div className="font-medium mt-3 w-full flex flex-row justify-between items-center gap-4">
+        <div className="font-medium mt-7 text-sm w-full flex flex-row justify-between items-center gap-4">
           <p className="">Discount</p>
           <p className="">-N500</p>
         </div>
 
-        <div className="mt-3 w-full text-2xl flex flex-row justify-between items-center gap-4">
+        <div className="mt-3 w-full text-xl flex flex-row justify-between items-center gap-4">
           <p className="font-bold">Total</p>
           <p className="font-bold">-N500</p>
         </div>
@@ -128,6 +124,11 @@ const Orders = () => {
           <p className="text-[#8D8D8D]">
             7 Sdekunle Ajose Street Lekki Lagos Nigeria
           </p>
+        </div>
+
+        <div className="w-max flex justify-start items-center gap-2 my-16 text-[#AAAAAA] mx-auto">
+          <img src={printer} />
+          <p className="font-medium">Print</p>
         </div>
       </div>
     </div>

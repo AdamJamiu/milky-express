@@ -35,7 +35,7 @@ const ProductDetails = () => {
 
   return (
     <div className="font-poppins">
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-10 flex-wrap md:flex-nowrap px-7 md:p-10 lg:p-20">
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-10 flex-wrap md:flex-nowrap p-7 md:p-10 lg:p-20">
         <div className="h-full">
           <div className="w-full p-7 border rounded-lg shadow-sm">
             <img src={detalisData[0]?.image} className="h-96 mx-auto" />
@@ -74,15 +74,15 @@ const ProductDetails = () => {
             <div className="flex flex-row justify-start items-center gap-1 w-max">
               <button
                 onClick={increaseQuantity}
-                className="font-semibold text-3xl active:scale-105 px-4"
+                className="font-semibold text-2xl active:scale-105 px-4"
               >
                 +
               </button>
-              <p className="py-3 px-6 rounded-md border text-lg">{quantity}</p>
+              <p className="py-2 px-6 rounded-md border text-lg">{quantity}</p>
               <button
                 onClick={decreaseQuantity}
                 disabled={quantity < 2}
-                className="font-semibold text-3xl disabled:cursor-not-allowed disabled:opacity-50 active:scale-105 px-4"
+                className="font-semibold text-2xl disabled:cursor-not-allowed disabled:opacity-50 active:scale-105 px-4"
               >
                 -
               </button>

@@ -50,9 +50,15 @@ const Navbar = () => {
           <div className="my-[6px] w-[25px] h-[2px] bg-gray-500"></div>
           <div className="my-[6px] w-[25px] h-[2px] bg-gray-500"></div>
         </div>
-        <Link to="/">HOME</Link>
-        <Link to="/orders">MY ORDERS</Link>
-        <Link to="/orders">CART</Link>
+        <Link onClick={toggleIsOpen} to="/">
+          HOME
+        </Link>
+        <Link onClick={toggleIsOpen} to="/orders">
+          MY ORDERS
+        </Link>
+        <Link onClick={toggleIsOpen} to="/cart">
+          CART
+        </Link>
       </div>
     </nav>
   );
