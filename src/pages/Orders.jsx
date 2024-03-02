@@ -15,7 +15,7 @@ const Orders = () => {
 
   return (
     <div className="font-poppins w-full p-4 md:p-20 grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-0">
-      <div className="w-full bg-white lg:pr-10">
+      <div className="w-full bg-white lg:pr-10 h-fit sticky top-28">
         <h1 className="text-2xl font-semibold mb-2">My Orders</h1>
         <p className="text-[#949494] font-medium text-sm">
           Input your email to view your order history

@@ -8,6 +8,7 @@ export default {
     extend: {
       fontFamily: {
         poppins: "Poppins",
+        openSans: "Open Sans"
       },
       screens: {
         xs: "490px"

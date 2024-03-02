@@ -2,9 +2,12 @@ import { Link } from "react-router-dom";
 import logo from "/milky-logo.png";
 import cartIcon from "/cart-icon.png";
 import { useState } from "react";
+import { useCart } from "../components/contexts";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { cartItems } = useCart();
+  console.log(cartItems);
 
   const toggleIsOpen = () => setIsOpen(!isOpen);
 
@@ -24,7 +27,7 @@ const Navbar = () => {
           <img src={cartIcon} className="w-10" />
           <div>
             <p className="font-medium text-sm">cart</p>
-            <p className="text-xs">3 items</p>
+            <p className="text-xs">{cartItems.length} items</p>
           </div>
         </Link>
       </div>

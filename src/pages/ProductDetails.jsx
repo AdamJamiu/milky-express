@@ -2,16 +2,21 @@ import { Link, useParams } from "react-router-dom";
 import { products } from "../data/products";
 import { useLayoutEffect, useState } from "react";
 import product7 from "/product-7.png";
+import { useCart } from "../components/contexts";
+import { toast } from "react-toastify";
 
 const ProductDetails = () => {
   const { id } = useParams();
+  const productDetails = products.filter((item) => item.id === id);
+  // console.log(productDetails);
   const [quantity, setQuantity] = useState(1);
+  const { addItemToCart, cartItems } = useCart();
 
   const increaseQuantity = () => setQuantity((prev) => ++prev);
   const decreaseQuantity = () => setQuantity((prev) => --prev);
 
   const detalisData = products?.filter((item) => item.id?.toString() === id);
-  //   console.log(detalisData);
+  // console.log(detalisData);
 
   const relatedProducts = products?.filter((item) => {
     const currentProductNameWords = detalisData[0]?.name.split(" ");
@@ -28,6 +33,26 @@ const ProductDetails = () => {
 
     return `${formattedAmount} NGN`;
   }
+
+  const handleAddToCart = ({ name, image, description, id, price }) => {
+    // Check if any item in the cart has the same id
+    const itemExists = cartItems.some((item) => item.id === id);
+    if (itemExists) {
+      toast.error("Item already exists in the cart", {
+        autoClose: 2000,
+        hideProgressBar: true,
+        toastId: id,
+      });
+    } else {
+      // Add the item to the cart
+      addItemToCart({ name, image, description, id, price, quantity });
+      toast.success("Item added to cart successfully", {
+        autoClose: 2000,
+        hideProgressBar: true,
+        toastId: id,
+      });
+    }
+  };
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
@@ -62,12 +87,24 @@ const ProductDetails = () => {
             tastes so good
           </p>
 
-          <button className="border border-[#FF1A71] text-[#FF1A71] font-medium my-7 py-2 px-4 rounded-md ">
+          <button className="border border-[#FF1A71] text-[#FF1A71] font-medium my-7 py-2 px-4 rounded-md text-sm">
             Choose a flavor
           </button>
 
           <div className="w-full flex flex-row justify-start items-center flex-wrap gap-10 sm:gap-20 my-5">
-            <button className="bg-[#FF1A71] text-white  py-2 px-4 rounded-md">
+            <button
+              onClick={() =>
+                handleAddToCart({
+                  name: detalisData[0]?.name,
+                  description: detalisData[0]?.description,
+                  id: detalisData[0]?.id,
+                  image: detalisData[0]?.image,
+                  price: detalisData[0]?.price,
+                  quantity,
+                })
+              }
+              className="bg-[#FF1A71] text-white py-2 px-4 rounded-md"
+            >
               Add to cart
             </button>
 
@@ -109,7 +146,19 @@ const ProductDetails = () => {
               <div className="w-full flex flex-row font-poppins justify-between items-center gap-3">
                 <p className="font-semibold">{formatCurrency(item.price)}</p>
 
-                <button className="rounded-md text-white px-3 py-2 bg-[#FF1A71] text-sm">
+                <button
+                  onClick={() =>
+                    handleAddToCart({
+                      name: detalisData[0]?.name,
+                      description: detalisData[0]?.description,
+                      id: detalisData[0]?.id,
+                      image: detalisData[0]?.image,
+                      price: detalisData[0]?.price,
+                      quantity,
+                    })
+                  }
+                  className="rounded-md text-white px-3 py-2 bg-[#FF1A71] text-sm"
+                >
                   Add to cart
                 </button>
               </div>

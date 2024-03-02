@@ -6,6 +6,7 @@ import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import OrderCompleted from "./pages/OrderCompleted";
 import Orders from "./pages/Orders";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
