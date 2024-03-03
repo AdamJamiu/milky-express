@@ -15,7 +15,7 @@ const Cart = () => {
   const [loggedInUser, setLoggedInUser] = useState(
     JSON.parse(sessionStorage.getItem("milky_express_user"))
   );
-  console.log(loggedInUser);
+  // console.log(loggedInUser);
   const urlParams = new URLSearchParams(window.location.search);
   const auth = urlParams.get("auth");
   console.log(auth);
@@ -64,6 +64,8 @@ const Cart = () => {
     );
     setLoggedInUser(userFromSessionStorage);
   }, [isSignedIn]);
+
+  console.log(isSignedIn);
 
   return (
     <div className="p-7 sm:px-14 md:p-20 font-poppins">
@@ -179,11 +181,17 @@ const Cart = () => {
           </div>
         ) : null}
 
-        {auth === "sign-in" ? <Login /> : null}
+        {isSignedIn || loggedInUser ? null : (
+          <>
+            {auth === "sign-in" ? (
+              <Login setIsSignedIn={setIsSignedIn} />
+            ) : null}
+          </>
+        )}
         {auth === "sign-up" ? <SignUp /> : null}
 
         {loggedInUser ? (
-          <div className="w-full" key={loggedInUser}>
+          <div className="w-full" key={isSignedIn}>
             {cartItems?.length > 0 ? (
               <div className="w-full rounded-xl bg-[#F9F9F9] py-5 px-2 sm:p-10">
                 <h1 className="text-2xl font-semibold">Checkout</h1>

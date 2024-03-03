@@ -7,16 +7,12 @@ import { orders } from "../data/orders";
 
 const Orders = () => {
   const [activeOrders, setActiveOrder] = useState(orders[0]?.data);
-  console.log(activeOrders);
+  // console.log(activeOrders);
 
   const handleSetActiveOrder = (index) => {
     setActiveOrder(orders[index]?.data);
     // console.log(orders[id]?.data);
   };
-
-  orders?.map((item, index) => {
-    console.log(item);
-  });
 
   return (
     <div className="font-poppins w-full p-5 lg:p-20 grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-0">
