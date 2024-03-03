@@ -188,7 +188,13 @@ const Cart = () => {
             ) : null}
           </>
         )}
-        {auth === "sign-up" ? <SignUp /> : null}
+        {isSignedIn || loggedInUser ? null : (
+          <>
+            {auth === "sign-in" ? (
+              <SignUp setIsSignedIn={setIsSignedIn} />
+            ) : null}
+          </>
+        )}
 
         {loggedInUser ? (
           <div className="w-full" key={isSignedIn}>
