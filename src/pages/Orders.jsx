@@ -7,14 +7,19 @@ import { orders } from "../data/orders";
 
 const Orders = () => {
   const [activeOrders, setActiveOrder] = useState(orders[0]?.data);
+  console.log(activeOrders);
 
-  const handleSetActiveOrder = (id) => {
-    setActiveOrder(orders[id]?.data);
-    console.log(activeOrders);
+  const handleSetActiveOrder = (index) => {
+    setActiveOrder(orders[index]?.data);
+    // console.log(orders[id]?.data);
   };
 
+  orders?.map((item, index) => {
+    console.log(item);
+  });
+
   return (
-    <div className="font-poppins w-full p-4 md:p-20 grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-0">
+    <div className="font-poppins w-full p-5 lg:p-20 grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-0">
       <div className="w-full bg-white lg:pr-10 h-fit md:sticky top-28">
         <h1 className="text-2xl font-semibold mb-2">My Orders</h1>
         <p className="text-[#949494] font-medium text-sm">
@@ -22,23 +27,24 @@ const Orders = () => {
         </p>
 
         <div className="space-y-3 mt-10">
-          {orders.map((item, index) =>
-            item?.data?.map((itm, idx) => (
+          {orders?.map(
+            (itm, index) => (
+              // item?.data?.map((itm, idx) => (
               <div
                 onClick={() => handleSetActiveOrder(index)}
-                key={idx}
+                key={index}
                 className={`${
-                  itm.id === activeOrders[idx]?.data?.id
+                  activeOrders?.some((item) => item.id === itm?.data[0].id)
                     ? "border-[#FF1A71]"
                     : "border-transparent"
                 } rounded-3xl py-1 pl-2 border flex flex-row justify-between items-center gap-7 cursor-pointer`}
               >
                 <div className="w-full flex items-center justify-start gap-1">
-                  <img src={itm.image} className="w-24" />
+                  <img src={itm?.data[index]?.image} className="w-24" />
                   <div className="">
-                    <p className="font-medium">{itm.name}</p>
+                    <p className="font-medium">{itm.data[index]?.name}</p>
                     <p className="text-sm text-[#9A9A9A] break-words">
-                      {itm.description}
+                      {itm?.data[index]?.description}
                     </p>
                   </div>
                 </div>
@@ -46,7 +52,8 @@ const Orders = () => {
                   <img src={arrowRight} />
                 </div>
               </div>
-            ))
+            )
+            // ))
           )}
         </div>
       </div>
