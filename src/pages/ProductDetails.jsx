@@ -62,7 +62,7 @@ const ProductDetails = () => {
     <div className="font-poppins">
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-10 flex-wrap md:flex-nowrap p-7 md:p-10 lg:p-20">
         <div className="h-full">
-          <div className="w-full p-7 border rounded-lg shadow-sm">
+          <div className="w-full p-7 border rounded-lg shadow-md">
             <img src={detalisData[0]?.image} className="h-96 mx-auto" />
           </div>
 
@@ -79,7 +79,7 @@ const ProductDetails = () => {
             {formatCurrency(detalisData[0]?.price)}
           </h2>
 
-          <p className="mt-5 text-[#9E9E9E]">
+          <p className="mt-5 text-[#9E9E9E] font-openSans">
             Imagine being a mother who works every morning and still having to
             take care of the baby. Our lactation cookies are specially made for
             you. Available in 2 flavors, you can have more than one kind of
@@ -130,7 +130,7 @@ const ProductDetails = () => {
 
       {/* Related Products */}
       <div className="bg-[#FFEAF2] sm:p-20 p-10 px-5 mt-20">
-        <h1 className="w-full text-center font-semibold text-2xl ">
+        <h1 className="w-full text-center font-semibold text-3xl">
           Related Products
         </h1>
 
@@ -141,10 +141,16 @@ const ProductDetails = () => {
               className="border rounded-md px-4 pt-7 pb-5 h-full flex flex-col justify-between items-start bg-white"
             >
               <img src={item.image} className="self-center mx-auto h-full" />
-              <p className="mb-3 font-semibold font-poppins">{item?.name}</p>
-              <p className="mb-7 text-[#838383]">{item?.description}</p>
+              <p className="mb-3 font-semibold font-poppins text-lg">
+                {item?.name}
+              </p>
+              <p className="mb-7 text-[#838383] font-openSans">
+                {item?.description}
+              </p>
               <div className="w-full flex flex-row font-poppins justify-between items-center gap-3">
-                <p className="font-semibold">{formatCurrency(item.price)}</p>
+                <p className="font-semibold text-lg">
+                  {formatCurrency(item.price)}
+                </p>
 
                 <button
                   onClick={() =>
@@ -157,7 +163,7 @@ const ProductDetails = () => {
                       quantity,
                     })
                   }
-                  className="rounded-md text-white px-3 py-2 bg-[#FF1A71] text-sm"
+                  className="rounded-lg text-white px-3 py-2 bg-[#FF1A71]"
                 >
                   Add to cart
                 </button>

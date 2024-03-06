@@ -18,7 +18,7 @@ const Orders = () => {
     <div className="font-poppins w-full p-5 lg:p-20 grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-0">
       <div className="w-full bg-white lg:pr-10 h-fit md:sticky top-28">
         <h1 className="text-2xl font-semibold mb-2">My Orders</h1>
-        <p className="text-[#949494] font-medium text-sm">
+        <p className="text-[#949494] font-medium text-sm font-openSans">
           Input your email to view your order history
         </p>
 
@@ -39,7 +39,7 @@ const Orders = () => {
                   <img src={itm?.data[index]?.image} className="w-24" />
                   <div className="">
                     <p className="font-medium">{itm.data[index]?.name}</p>
-                    <p className="text-sm text-[#9A9A9A] break-words">
+                    <p className="text-sm text-[#9A9A9A] break-words font-openSans">
                       {itm?.data[index]?.description}
                     </p>
                   </div>

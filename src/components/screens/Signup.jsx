@@ -11,7 +11,7 @@ const SignUp = ({ setIsSignedIn }) => {
   };
 
   return (
-    <div className="w-full max-w-[70%]">
+    <div className="w-full md:w-[70%]">
       <h1 className="text-xl font-semibold mb-2">Sign Up</h1>
       <p className="text-[#AAAAAA] text-sm">Sign up to get started</p>
       <input
@@ -35,7 +35,7 @@ const SignUp = ({ setIsSignedIn }) => {
         Sign up
       </button>
 
-      <div className="w-full text-[#949494] text-sm text-center">
+      <div className="w-full text-[#949494] text-sm text-center font-openSans">
         <button onClick={updateURLParameter} className="underline font-bold">
           Continue with Google or Facebook
         </button>

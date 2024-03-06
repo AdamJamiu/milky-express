@@ -41,9 +41,11 @@ const Login = ({ setIsSignedIn }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-[70%]">
+    <form onSubmit={handleSubmit} className="w-full md:w-[70%]">
       <h1 className="text-xl font-semibold mb-2">Login</h1>
-      <p className="text-[#AAAAAA] text-sm">Login to complete your order</p>
+      <p className="text-[#AAAAAA] text-sm font-openSans">
+        Login to complete your order
+      </p>
       <input
         required
         type="email"
@@ -66,8 +68,8 @@ const Login = ({ setIsSignedIn }) => {
         Log in
       </button>
 
-      <div className="w-full text-[#949494] text-sm text-center">
-        <button onClick={updateURLParameter} className="underline font-bold">
+      <div className="w-full text-[#949494] text-sm text-center font-openSans">
+        <button className="underline font-bold">
           Continue with Google or Facebook
         </button>
       </div>

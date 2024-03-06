@@ -80,7 +80,7 @@ const Cart = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 w-full mt-7">
         <div className="w-full pt-7 border-t">
           <h1 className="font-semibold text-2xl">Cart</h1>
-          <p className="text-[#949494] mt-3 text-sm">
+          <p className="text-[#949494] mt-3 text-sm font-openSans">
             You have {cartItems?.length} item (s) in your cart
           </p>
 

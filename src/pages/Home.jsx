@@ -35,7 +35,7 @@ const Home = () => {
   };
 
   const filteredProducts = products?.filter((item) =>
-    item.name?.toLowerCase()?.includes(searchQuery)
+    item.name?.toLowerCase()?.includes(searchQuery?.toLocaleLowerCase())
   );
 
   useLayoutEffect(() => {
@@ -69,7 +69,9 @@ const Home = () => {
             >
               <img src={item.image} className="self-center mx-auto h-full" />
               <p className="mb-3 font-semibold font-poppins">{item?.name}</p>
-              <p className="mb-7 text-[#838383]">{item?.description}</p>
+              <p className="mb-7 text-[#838383] font-openSans">
+                {item?.description}
+              </p>
             </Link>
             <div className="w-full flex flex-row font-poppins justify-between items-center gap-3">
               <p className="font-semibold">{formatCurrency(item.price)}</p>
