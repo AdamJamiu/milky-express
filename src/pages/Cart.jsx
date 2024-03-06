@@ -190,7 +190,7 @@ const Cart = () => {
         )}
         {isSignedIn || loggedInUser ? null : (
           <>
-            {auth === "sign-in" ? (
+            {auth === "sign-up" ? (
               <SignUp setIsSignedIn={setIsSignedIn} />
             ) : null}
           </>
